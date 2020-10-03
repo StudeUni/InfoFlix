@@ -1,0 +1,21 @@
+﻿@page
+@model InfoFlix.Pages.Movies.IndexModel
+@{
+}
+
+<h2>HEYYYY</h2>
+
+
+@foreach (var movie in Model.Movies)
+{
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@Html.DisplayFor(m => movie.ImageUrl)" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(m => movie.Title)</h5>
+            <p class="card-text">@Html.DisplayFor(m => movie.Synopsis)</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+
+}
