@@ -5,12 +5,18 @@
 }
 
 
+<form class="form-inline md-form mr-auto mb-4 justify-content-center">
+    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-info btn-rounded btn-sm my-0" type="submit">🔎</button>
+</form>
+
+
 <div class="card-deck">
     @foreach (var movie in Model.Movies)
     {
-    <div class="card m-3" style="min-width: 18rem; max-width:30.5%">
-        <a asp-page="/Movies/Details" asp-route-ID="@movie.Id">
-            <img class="card-img-top" src="@Html.DisplayFor(m => movie.ImageUrl)" alt="Card image cap">
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%">
+            <a asp-page="/Movies/Details" asp-route-ID="@movie.Id">
+                <img class="card-img-top" src="@Html.DisplayFor(m => movie.ImageUrl)" alt="Card image cap">
             </a>
             <div class="card-body">
                 <h5 class="card-title text-center">@Html.DisplayFor(m => movie.Title)</h5>
@@ -25,8 +31,15 @@
                     <span class="fa fa-star checked"></span>
                 </p>
                 <center><a class="fa fa-play" href="@Html.DisplayFor(m => movie.TrailerUrl)" style="font-size:48px;color:cadetblue" target="_blank"></a></center>
+                <br/>
+                <center>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-dark justify-content-center">✐Edit</button>
+                        <button class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" onclick="return confirm('Are you sure you want to delete?')">🗑Delete</button>
+                    </div>
+                </center>
             </div>
-    </div>
+        </div>
 
     }
 </div>

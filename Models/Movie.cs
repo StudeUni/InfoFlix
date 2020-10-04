@@ -17,7 +17,7 @@ namespace InfoFlix.Models
         [StringLength(300, MinimumLength = 10), Required, DisplayName("Synopsis:")]
         public string Synopsis { get; set; }
 
-        [Display(Name = "Release Date:"), DataType(DataType.Date), Required, DisplayName("Relase Date:")]
+        [Display(Name = "Release Date:"), DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
         [Range(1, 5), DisplayName("Rating:")]

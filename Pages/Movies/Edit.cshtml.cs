@@ -8,26 +8,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace InfoFlix.Pages.Movies
 {
-    public class DetailsModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly IMovieRepository movieRepository;
 
-        public Movie Movie { get; private set; }
-
-        public DetailsModel(IMovieRepository movieRepository)
+        public EditModel(IMovieRepository movieRepository)
         {
             this.movieRepository = movieRepository;
         }
-        public IActionResult OnGet(int id)
+        public void OnGet()
         {
-            Movie = movieRepository.GetMovie(id);
-
-            if(Movie == null)
-            {
-                return RedirectToPage("/NotFound");
-            }
-
-            return Page();
         }
     }
 }

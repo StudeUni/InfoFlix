@@ -7,6 +7,7 @@ using InfoFlix.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +30,14 @@ namespace InfoFlix
             services.AddRazorPages();
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
             services.AddScoped<IMovieRepository, MockMovieRepository>();
+
+            services.Configure<RouteOptions>(options =>
+            {
+                // Generates lowercase URLs. Default is false
+                options.LowercaseUrls = true;
+                //Appends a trailing slash to the generated URLs
+                options.AppendTrailingSlash = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

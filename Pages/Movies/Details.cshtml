@@ -1,4 +1,28 @@
-﻿@page
+﻿@page "{id:min(1)}"
 @model InfoFlix.Pages.Movies.DetailsModel
 @{
 }
+
+
+
+<div class="container">
+    <h1 class="text-center">@Model.Movie.Title</h1>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <img style='float:left;width:425px;height:563px; margin-right:10px;' src="@Model.Movie.ImageUrl" />
+            <br /><br /><br />
+            <label asp-for="Movie.Synopsis" class="font-weight-bold"></label>
+            <p>@Model.Movie.Synopsis</p>
+            <label asp-for="Movie.ReleaseDate" class="font-weight-bold"></label>
+            <p class="card-text">@Model.Movie.ReleaseDate</p>
+            <label class="font-weight-bold" asp-for="Movie.Rating"></label>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <center><a class="fa fa-play" href="@Model.Movie.TrailerUrl" style="font-size:48px;color:cadetblue" target="_blank"></a></center>
+        </div>
+        </div>
+    </div>
