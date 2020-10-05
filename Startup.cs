@@ -29,7 +29,7 @@ namespace InfoFlix
         {
             services.AddRazorPages();
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
-            services.AddScoped<IMovieRepository, MockMovieRepository>();
+            services.AddSingleton<IMovieRepository, MockMovieRepository>();
 
             services.Configure<RouteOptions>(options =>
             {
@@ -38,6 +38,7 @@ namespace InfoFlix
                 //Appends a trailing slash to the generated URLs
                 options.AppendTrailingSlash = true;
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

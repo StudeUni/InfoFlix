@@ -48,11 +48,6 @@ namespace InfoFlix.Models
 			return MovieList.FirstOrDefault(m => m.Id == Id);
 		}
 
-		public IEnumerable<Movie> Search(string SearchString)
-		{
-			throw new NotImplementedException();
-		}
-
 		public Movie Update(Movie MovieUpdates)
 		{
 			Movie movie = MovieList.FirstOrDefault(m => m.Id == MovieUpdates.Id);
@@ -68,6 +63,16 @@ namespace InfoFlix.Models
 			}
 
 			return movie;
+		}
+
+		public IEnumerable<Movie> Search(string SearchString)
+		{
+			if (!string.IsNullOrEmpty(SearchString))
+			{
+				return MovieList.Where(m => m.Title.Contains(SearchString));
+			}
+
+			return MovieList;
 		}
 
 

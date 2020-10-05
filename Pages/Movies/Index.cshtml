@@ -35,7 +35,7 @@
                 <center>
                     <div class="btn-group">
                         <a asp-page="/Movies/Edit" asp-route-ID="@movie.Id" class="btn btn-outline-dark justify-content-center">✐Edit</a>
-                        <button class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" onclick="return confirm('Are you sure you want to delete?')">🗑Delete</button>
+                        <a asp-page="/Movies/Delete" asp-route-ID="@movie.Id" class="btn btn-outline-danger btn-sm">🗑Delete</a>
                     </div>
                 </center>
             </div>
