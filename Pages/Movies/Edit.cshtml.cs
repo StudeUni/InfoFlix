@@ -11,13 +11,29 @@ namespace InfoFlix.Pages.Movies
     public class EditModel : PageModel
     {
         private readonly IMovieRepository movieRepository;
-
         public EditModel(IMovieRepository movieRepository)
         {
             this.movieRepository = movieRepository;
         }
-        public void OnGet()
+
+        [BindProperty]
+        public Movie Movie { get; set; }
+        public IActionResult OnGet(int id)
         {
+            Movie = movieRepository.GetMovie(id);
+
+            if(Movie == null)
+            {
+                return RedirectToPage("/NotFound");
+            }
+
+            return Page();
+        }
+
+        public IActionResult OnPost(Movie movie)
+        {
+            Movie = movieRepository.Update(movie);
+            return RedirectToPage("/Movies/Index");
         }
     }
 }

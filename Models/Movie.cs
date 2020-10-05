@@ -20,12 +20,12 @@ namespace InfoFlix.Models
         [Display(Name = "Release Date:"), DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        [Range(1, 5), DisplayName("Rating:")]
-        public int Rating { get; set; }
+        [DisplayName("Rating:")]
+        public string Rating { get; set; }
 
-        [DisplayName("Trailer Url ")]
+        [DisplayName("Trailer Url: ")]
         public string TrailerUrl { get; set; }
-        [DisplayName("Image Url ")]
+        [DisplayName("Image Url: ")]
         public string ImageUrl { get; set; }
 
     }

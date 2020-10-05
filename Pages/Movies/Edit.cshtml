@@ -1,5 +1,51 @@
-﻿@page
+﻿@page "{id:min(1)}"
 @model InfoFlix.Pages.Movies.EditModel
 @{
 }
 
+<h1>Edit</h1>
+
+<form method="post" class="mt-3">
+    <input hidden asp-for="Movie.Id" />
+    <div class="form-group row">
+        <label asp-for="Movie.Title" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Movie.Title" class="form-control" placeholder="Title" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Movie.Synopsis" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Movie.Synopsis" class="form-control" placeholder="Title" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Movie.ReleaseDate" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Movie.ReleaseDate" class="form-control" placeholder="Title" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Movie.TrailerUrl" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Movie.TrailerUrl" class="form-control" placeholder="Title" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Movie.ImageUrl" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Movie.ImageUrl" class="form-control" placeholder="Title" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a asp-page="/Movies/Index" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

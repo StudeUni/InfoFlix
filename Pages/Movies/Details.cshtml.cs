@@ -12,12 +12,12 @@ namespace InfoFlix.Pages.Movies
     {
         private readonly IMovieRepository movieRepository;
 
-        public Movie Movie { get; private set; }
-
         public DetailsModel(IMovieRepository movieRepository)
         {
             this.movieRepository = movieRepository;
         }
+
+        public Movie Movie { get; private set; }
         public IActionResult OnGet(int id)
         {
             Movie = movieRepository.GetMovie(id);
