@@ -29,8 +29,9 @@ namespace InfoFlix
         {
             services.AddRazorPages();
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
-            services.AddSingleton<IMovieRepository, MockMovieRepository>();
+            services.AddScoped<IMovieRepository, SqlMovieRepository>();
 
+            //if i remember
             services.Configure<RouteOptions>(options =>
             {
                 // Generates lowercase URLs. Default is false

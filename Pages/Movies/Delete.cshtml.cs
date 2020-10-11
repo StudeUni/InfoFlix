@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace InfoFlix.Pages.Movies
 {
+    //We get our public employee property and use a bind property attribute
+    //then we create the constuructor to bring in the interface through dependency injection
+    //then we use the repo to get the movie method in the onget method 
+    //we then have a form which has a post method attribute inside with a submit button
     public class DeleteModel : PageModel
     {
         private readonly IMovieRepository movieRepository;

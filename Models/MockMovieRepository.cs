@@ -5,6 +5,30 @@ using System.Threading.Tasks;
 
 namespace InfoFlix.Models
 {
+	//This repository provides an implementation for the Interface created IMoveRepository
+	//Hard code Movie data using private field then injecting it into constructor 
+	//We then use that list injected into the constructor for our getMovies method by returning it
+
+	//The GetMovie method will take the ID of the movie as it's parameter which will then be used to return the specific employee
+	//using a Linq statement and the firstOrDefault method we can check that an existing movie id is equal to the incoming id
+	//To then pass the movie ID to the details razor page we use the tag helper asp-route-ID tag helper which passes the id into the url as a query string parameter 
+
+
+	//Update method takes the movie object and returns the updated employee object
+	//Using a linq statement and the firstOrDefault method we  can check that an existing movie id is equal to the incoming id
+	// if record found is not null then we have found our record we want to upate
+	//We then have to assign the updated value its corresponding properties
+	//Then we return the updated object back
+
+	//Due to working with in memory data we need to manually compute the ID that is being added / this is manually done is sql server
+	//we get the max movie ID in the list then we add one to it that way when we add its always greater in value than the last added
+	//Then we add the new employee object and return the new employee object
+
+	//Delete we use the linq query to find a match of an existing id with the incoming id
+	// then we check if the found record is not null and if thats right we found it
+	//then we can call the remove 
+	// then return the deleted employee
+
 	public class MockMovieRepository : IMovieRepository
 	{
 		private List<Movie> MovieList;
